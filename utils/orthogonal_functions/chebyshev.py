@@ -13,14 +13,14 @@ class Chebyshev_polynomials:
     
     def MAP_f(self, ARRAY_x: ndarray):
         ARRAY_x = (2 * ARRAY_x - self.beta) / self.alpha
-        result: float = zeros(ARRAY_x.shape)
+        ARRAY_y: float = zeros(ARRAY_x.shape)
         for i, omega in ARRAY_omega:
-            result += omega * cos(i * arccos(ARRAY_x))
-        return result
+            ARRAY_y += omega * cos(i * arccos(ARRAY_x))
+        return ARRAY_y
     
     def f(self, x: float) -> float:
         x: float = (2 * x - self.beta) / self.alpha
-        result: float = 0.0
+        y: float = 0.0
         for i, omega in ARRAY_omega:
-            result += omega * cos(i * arccos(x))
-        return result
+            y += omega * cos(i * arccos(x))
+        return y
